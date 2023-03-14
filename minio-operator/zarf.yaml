@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/zarf/main/zarf.schema.json
+
+kind: ZarfPackageConfig
+metadata:
+  name: minio-operator
+  description: "minio operator deployment"
+  version: 4.5.4-bb.0
+  architecture: amd64 
+
+components:
+  # - name: pre-flight-check
+  #   actions:
+  #     onDeploy:
+  #       before:
+  #         - cmd: "do some check to makesure the CRD is there"
+  - name: values
+    required: true
+    import:
+      path: ../import
+      name: values
+  - name: minio-operator
+    required: true  
+    description: "Deploy ###ZARF_PKG_VAR_NAME### and other ###ZARF_PKG_VAR_TAG###"
+    import:
+      path: ../import
+      name: app
+    images:
+      - registry1.dso.mil/ironbank/opensource/minio/operator:v4.5.4
+      - registry1.dso.mil/ironbank/opensource/minio/console:v0.21.3

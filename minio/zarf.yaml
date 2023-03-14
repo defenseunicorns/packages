@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/zarf/main/zarf.schema.json
+
+kind: ZarfPackageConfig
+metadata:
+  name: minio
+  description: "Minio Deployment"
+  version: "4.5.4-bb.3"
+  architecture: amd64  
+
+components: 
+  - name: values
+    required: true
+    import:
+      path: ../import
+      name: values
+  - name: minio
+    required: true  
+    description: "Deploy minio"
+    import:
+      path: ../import
+      name: app
+    images:
+    - registry1.dso.mil/ironbank/opensource/minio/minio:RELEASE.2022-11-26T22-43-32Z

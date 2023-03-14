@@ -1,0 +1,15 @@
+istio:
+  enabled: true
+  console:
+    gateways:
+    - istio-system/public
+
+monitoring:
+  enabled: true
+
+domain: ###ZARF_VAR_DOMAIN###
+
+podAnnotations:
+  sidecar.istio.io/inject: "true"
+  traffic.sidecar.istio.io/includeInboundPorts: "*"
+  traffic.sidecar.istio.io/excludeInboundPorts: "9443"

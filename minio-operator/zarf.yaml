@@ -8,11 +8,6 @@ metadata:
   architecture: amd64 
 
 components:
-  # - name: pre-flight-check
-  #   actions:
-  #     onDeploy:
-  #       before:
-  #         - cmd: "do some check to makesure the CRD is there"
   - name: values
     required: true
     import:
@@ -20,7 +15,7 @@ components:
       name: values
   - name: minio-operator
     required: true  
-    description: "Deploy ###ZARF_PKG_VAR_NAME### and other ###ZARF_PKG_VAR_TAG###"
+    description: "Deploy ###ZARF_PKG_VAR_NAME###"
     import:
       path: ../import
       name: app

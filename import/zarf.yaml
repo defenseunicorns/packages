@@ -29,7 +29,7 @@ components:
       onDeploy:
         before:
           - cmd: awk '{printf "%s\\n", $0}' values.yaml | sed "s/\"/\\\\\"/g"
-            description: Read file contents
+            description: Read file contents.  Need to escape all new lines and quotes so that it injects into the Kubernetes Secret correctly
             setVariable: CONTENTS      
     description: "Deploy Flux wrapped Application"
     manifests:

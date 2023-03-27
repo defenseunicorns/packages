@@ -8,8 +8,12 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            const res = await github.rest.packages.listPackagesForOrganization({
-                    package_type: 'container',
-                    org: 'defenseunicorns'
-                  });
-            console.log(res)
+              const res = github.rest.packages.listPackagesForOrganization({
+                  'package_type': 'container',
+                  'org': 'defenseunicorns'
+              })
+              console.log(res.data)
+
+
+                  
+            

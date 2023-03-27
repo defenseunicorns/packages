@@ -1,0 +1,13 @@
+on: push
+
+jobs:
+  echo-input:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            const script = require('../../package-finder.js')
+            const res = await script({github, context, core})
+            console.log(res)

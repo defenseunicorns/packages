@@ -9,11 +9,10 @@ jobs:
         with:
           github-token: ${{ secrets.PACKAGES_SECRET }}
           script: |
-               const res = await github.rest.packages.listPackagesForOrganization({
-                                   package_type: 'container',
-                                   org: 'defenseunicorns'
-                                 });
-               console.log(res)
+               const script = require('./package-finder.js')
+               await script({github})
+               cat README.md
+
 
 
                   

@@ -9,5 +9,5 @@ jobs:
         with:
           script: |
             const script = require('./package-finder.js')
-            const res = await script({github, context, core})
+            const res = await script({github})
             console.log(res)

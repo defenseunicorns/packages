@@ -7,6 +7,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/github-script@v6
         with:
+          github-token: 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
           script: |
                const res = await github.rest.packages.listPackagesForOrganization({
                                    package_type: 'container',

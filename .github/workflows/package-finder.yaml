@@ -8,6 +8,9 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            const script = require('./package-finder.js')
-            const res = await script({github})
+            #const script = require('./package-finder.js')
+            const res = await github.rest.packages.listPackagesForOrganization({
+                    package_type: 'container',
+                    org: 'defenseunicorns'
+                  });
             console.log(res)

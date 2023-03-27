@@ -8,6 +8,6 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            const script = require('../../package-finder.js')
+            const script = require('./package-finder.js')
             const res = await script({github, context, core})
             console.log(res)

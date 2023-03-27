@@ -9,7 +9,7 @@ jobs:
         with:
           script: |
                const res = github.rest.repos.listForOrg({org: 'defenseunicorns'})
-               console.log(res.data)
+               console.log(res)
 
 
                   

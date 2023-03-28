@@ -17,7 +17,7 @@ function makeReadme(pkgs) {
                      '|---------|-----|\n';
 
   for(const pkg of pkgs.data) {
-    readme_table += `[${pkg.name}](${pkg.html_url}) | ${pkg.repository.name} |\n`
+    readme_table += `[${pkg.name}](${pkg.html_url}) | ${pkg.repository && pkg.repository.name} |\n`
   }
 
   fs.writeFileSync('README.md', readme_table, 'utf-8');

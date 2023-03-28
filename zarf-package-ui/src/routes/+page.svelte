@@ -3,9 +3,8 @@
 	import { getPackages, getPkgVersions } from './api/api';
 </script>
 
-<Typography variant="h1">Welcome to Zarf Packages</Typography>
-
-<Box>
+<Box ssx={{$self: {display: 'flex', flexDirection: 'column'}}}>
+<Typography variant="h1" style="align-self: center">Welcome to UDS Packages</Typography>
 	{#await getPackages()}
 		<Typography>Getting Packages</Typography>
 	{:then res}

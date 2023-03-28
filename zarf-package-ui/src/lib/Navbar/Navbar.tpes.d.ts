@@ -1,3 +1,3 @@
-import type { BoxProps } from '@defense-unicorns/unicorn-ui';
+import type { PaperProps } from '@defense-unicorns/unicorn-ui';
 
-export type NavbarProps<T extends EventTarget> = BoxProps<T>;
+export type NavbarProps<T extends EventTarget> = PaperProps<T>;

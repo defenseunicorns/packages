@@ -13,11 +13,11 @@ module.exports = async ({github}) => {
 
 function makeReadme(pkgs) {
 
-  let readme_table = '| Package | URL |\n' +
+  let readme_table = '| Package | Repo |\n' +
                      '|---------|-----|\n';
 
   for(const pkg of pkgs.data) {
-    readme_table += `${pkg.name} | [${pkg.url}](${pkg.url}) |\n`
+    readme_table += `[${pkg.name}](${pkg.html_url}) | ${pkg.repository.name} |\n`
   }
 
   fs.writeFileSync('README.md', readme_table, 'utf-8');

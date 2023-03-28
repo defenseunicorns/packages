@@ -1,14 +1,14 @@
-| Package | URL |
+| Package | Repo |
 |---------|-----|
-asdf-docker | [https://api.github.com/orgs/defenseunicorns/packages/container/asdf-docker](https://api.github.com/orgs/defenseunicorns/packages/container/asdf-docker) |
-zarf-package-software-factory/build-harness | [https://api.github.com/orgs/defenseunicorns/packages/container/zarf-package-software-factory%2Fbuild-harness](https://api.github.com/orgs/defenseunicorns/packages/container/zarf-package-software-factory%2Fbuild-harness) |
-crossplane-config-aws-enclave | [https://api.github.com/orgs/defenseunicorns/packages/container/crossplane-config-aws-enclave](https://api.github.com/orgs/defenseunicorns/packages/container/crossplane-config-aws-enclave) |
-crossplane-config-aws | [https://api.github.com/orgs/defenseunicorns/packages/container/crossplane-config-aws](https://api.github.com/orgs/defenseunicorns/packages/container/crossplane-config-aws) |
-baffles-api | [https://api.github.com/orgs/defenseunicorns/packages/container/baffles-api](https://api.github.com/orgs/defenseunicorns/packages/container/baffles-api) |
-baffles-dashboard | [https://api.github.com/orgs/defenseunicorns/packages/container/baffles-dashboard](https://api.github.com/orgs/defenseunicorns/packages/container/baffles-dashboard) |
-zarf/dev-agent | [https://api.github.com/orgs/defenseunicorns/packages/container/zarf%2Fdev-agent](https://api.github.com/orgs/defenseunicorns/packages/container/zarf%2Fdev-agent) |
-zarf-package/dev-dependencies | [https://api.github.com/orgs/defenseunicorns/packages/container/zarf-package%2Fdev-dependencies](https://api.github.com/orgs/defenseunicorns/packages/container/zarf-package%2Fdev-dependencies) |
-zarf-package/dev-deps-util | [https://api.github.com/orgs/defenseunicorns/packages/container/zarf-package%2Fdev-deps-util](https://api.github.com/orgs/defenseunicorns/packages/container/zarf-package%2Fdev-deps-util) |
-baffles-vnc-proxy | [https://api.github.com/orgs/defenseunicorns/packages/container/baffles-vnc-proxy](https://api.github.com/orgs/defenseunicorns/packages/container/baffles-vnc-proxy) |
-zarf/agent | [https://api.github.com/orgs/defenseunicorns/packages/container/zarf%2Fagent](https://api.github.com/orgs/defenseunicorns/packages/container/zarf%2Fagent) |
-not-a-build-harness/not-a-build-harness | [https://api.github.com/orgs/defenseunicorns/packages/container/not-a-build-harness%2Fnot-a-build-harness](https://api.github.com/orgs/defenseunicorns/packages/container/not-a-build-harness%2Fnot-a-build-harness) |
+[asdf-docker](https://github.com/orgs/defenseunicorns/packages/container/package/asdf-docker) | asdf-docker |
+[zarf-package-software-factory/build-harness](https://github.com/orgs/defenseunicorns/packages/container/package/zarf-package-software-factory%2Fbuild-harness) | zarf-package-software-factory |
+[crossplane-config-aws-enclave](https://github.com/orgs/defenseunicorns/packages/container/package/crossplane-config-aws-enclave) | crossplane-config-aws-enclave |
+[crossplane-config-aws](https://github.com/orgs/defenseunicorns/packages/container/package/crossplane-config-aws) | crossplane-config-aws |
+[baffles-api](https://github.com/orgs/defenseunicorns/packages/container/package/baffles-api) | baffles-ui |
+[baffles-dashboard](https://github.com/orgs/defenseunicorns/packages/container/package/baffles-dashboard) | undefined |
+[zarf/dev-agent](https://github.com/orgs/defenseunicorns/packages/container/package/zarf%2Fdev-agent) | zarf |
+[zarf-package/dev-dependencies](https://github.com/orgs/defenseunicorns/packages/container/package/zarf-package%2Fdev-dependencies) | zarf-package-dev-dependencies |
+[zarf-package/dev-deps-util](https://github.com/orgs/defenseunicorns/packages/container/package/zarf-package%2Fdev-deps-util) | zarf-package-dev-dependencies |
+[baffles-vnc-proxy](https://github.com/orgs/defenseunicorns/packages/container/package/baffles-vnc-proxy) | baffles-ui |
+[zarf/agent](https://github.com/orgs/defenseunicorns/packages/container/package/zarf%2Fagent) | zarf |
+[not-a-build-harness/not-a-build-harness](https://github.com/orgs/defenseunicorns/packages/container/package/not-a-build-harness%2Fnot-a-build-harness) | not-a-build-harness |

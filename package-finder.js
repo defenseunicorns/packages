@@ -31,7 +31,7 @@ async function makeReadme() {
 
   for(const pkg of pkgs.data) {
     const versions = await getPkgVersions(pkg.name)
-    readme_table += `[${pkg.name}](${pkg.html_url}) | [${pkg.repository && pkg.repository.name}](${pkg.repository.html_url}) | ${versions[0].metadata.container.tags.join('<br />')} |\n`
+    readme_table += `[${pkg.name}](${pkg.html_url}) | [${pkg.repository && pkg.repository.name}](${pkg.repository.html_url}) | ${versions[0].metadata && versions[0].metadata.container.tags.join('<br />')} |\n`
   }
 
   fs.writeFileSync('README.md', readme_table, 'utf-8');

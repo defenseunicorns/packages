@@ -33,8 +33,8 @@ async function makeReadme() {
     const versions = await getPkgVersions(pkg.name)
     const repo_name = pkg.repository && pkg.repository.name || '';
     const repo_url = pkg.repository && pkg.repository.html_url || '';
-    const latest_version_tags = versions[0] && versions[0].metadata.container.tags.join('<br />')
-    
+    const latest_version_tags = versions[0] && versions[0].metadata.container.tags.join('<br />') || '';
+
     readme_table += `[${pkg.name}](${pkg.html_url}) | [${repo_name}](${repo_url}) | ${latest_version_tags} |\n`
   }
 

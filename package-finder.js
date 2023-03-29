@@ -23,7 +23,7 @@ async function getPkgVersions(pkgName) {
 	});
 }
 
-async function makeReadme(pkgs) {
+async function makeReadme() {
   const pkgs = await getPackages();
 
   let readme_table = '| Package | Repo | Tags |\n' +

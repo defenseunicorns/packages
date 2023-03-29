@@ -1,17 +1,22 @@
 const fs = require('fs');
 
-module.exports = async ({github}) => {
- const pkgs = await github.rest.packages.listPackagesForOrganization({
-    package_type: 'container',
-    org: 'defenseunicorns'
-  });
+let controller;
 
- makeReadme(pkgs)
+module.exports = async ({github}) => {
+  controller = github;
+  makeReadme()
 }
 
 
+async function getPackages() {
+  return controller.rest.packages.listPackagesForOrganization({
+    package_type: 'container',
+    org: 'defenseunicorns'
+  });
+}
+
 async function getPkgVersions(pkgName) {
-  return github.rest.packages.getAllPackageVersionsForPackageOwnedByOrg({
+  return controller.rest.packages.getAllPackageVersionsForPackageOwnedByOrg({
 		package_type: 'container',
 		package_name: pkgName,
 		org: 'defenseunicorns'
@@ -19,6 +24,7 @@ async function getPkgVersions(pkgName) {
 }
 
 async function makeReadme(pkgs) {
+  const pkgs = await getPackages();
 
   let readme_table = '| Package | Repo | Tags |\n' +
                      '|---------|------|------|\n';

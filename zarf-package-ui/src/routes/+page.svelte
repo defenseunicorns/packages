@@ -3,27 +3,27 @@
 	import { getPackages, getPkgVersions } from './api/api';
 </script>
 
-<Box ssx={{$self: {display: 'flex', flexDirection: 'column'}}}>
-<Typography variant="h1" style="align-self: center">Welcome to UDS Packages</Typography>
+<Box ssx={{$self: {display: 'flex', flexDirection: 'column', '& a': {color: 'var(--on-surface)'}}}}>
+<Typography variant="h1" style="align-self: center">UDS Packages</Typography>
 	{#await getPackages()}
 		<Typography>Getting Packages</Typography>
 	{:then res}
 	{#each res as pkg, index}
-	<Paper elevation={16} ssx={{$self: {padding: '1rem', marginBottom: '1rem'}}}>
+	<Paper elevation={4} ssx={{$self: {padding: '1rem', marginBottom: '1rem'}}}>
 		<Typography variant="h4">Package: {pkg.name}</Typography>
 		<Typography variant="h6">Type: {pkg.package_type}</Typography>
-		<Typography variant="h6">Created: {pkg.created_at}</Typography>
-		<Typography variant="h6">Last updated: {pkg.updated_at}</Typography>
+		<Typography variant="h6">Created: {pkg.created_at.split('T')[0]}</Typography>
+		<Typography variant="h6">Last updated: {pkg.updated_at.split('T')[0]}</Typography>
 		<Typography variant="h6">Description: {pkg.repository && pkg.repository.description}</Typography>
 		<Typography variant="h6">Repo: <a href={pkg.repository && pkg.repository.html_url}>{pkg.repository && pkg.repository.full_name}</a></Typography>
 		<Typography variant="h6">Package URL: <a href={pkg.html_url}>{pkg.html_url}</a></Typography>
 		<Typography variant="h6">Versions: </Typography>
-		<Paper elevation={20} class="versions-paper">
+		<Box class="versions-paper">
 			{#await getPkgVersions(pkg.name)}
 			loading Versions
 			{:then versions}
 				{#each versions as ver}
-				<div class="version">
+				<Paper elevation={20} class="version">
 					<div>Name: {ver.name}</div>
 					<div>URL: <a href={ver.html_url}>{ver.html_url}</a></div>
 					<div>Tags: 
@@ -33,10 +33,10 @@
 					</div>
 
 					<div>Use: {`docker pull ghcr.io/defenseunicorns/${pkg.name}@${ver.name}`}</div>
-				</div>
+				</Paper>
 				{/each}
 			{/await}
-		</Paper>
+			</Box>
 	</Paper>
 		{/each}
 	{/await}
@@ -51,7 +51,8 @@
 	}
 
 	.version {
-		margin: .5rem
+		margin: .5rem;
+		padding: .5rem;
 	}
 
 	.tag {

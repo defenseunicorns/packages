@@ -8,7 +8,7 @@
 	type $$Props = FooterProps<T>;
 </script>
 
-<Paper elevation={20} class="footer">
+<Paper elevation={2} class="footer">
 	<Typography variant="body1" class="footer-copyright">Copyright &copy 2023 Zarf Project, All right reserved.</Typography>
 	<Box ssx={{$self: {display: 'flex', alignItems: 'center', gap: '1rem'}}}>
 		<a href="https://zarf.dev/slack"><SlackIcon /></a>

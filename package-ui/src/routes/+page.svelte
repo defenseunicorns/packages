@@ -36,7 +36,7 @@
 				</Paper>
 				{/each}
 			{/await}
-			</Box>
+		</Box>
 	</Paper>
 		{/each}
 	{/await}

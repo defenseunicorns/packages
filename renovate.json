@@ -13,7 +13,7 @@
     "commitMessageSuffix": "[ci-skip]",
     "platform": "github",
     "onboarding": false,
-    "requireConfig": false,
+    "requireConfig": "ignored",
     "dependencyDashboardTitle": "Renovate Dashboard 🤖",
     "rebaseWhen": "conflicted",
     "commitBodyTable": true,

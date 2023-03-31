@@ -8,7 +8,7 @@
     "timezone": "America/Denver",
     "repositories": ["defenseunicorns/packages"],
     "rebaseStalePrs": true,
-    "schedule": ["before 3pm every weekday"],
+    "schedule": ["before 4pm every weekday"],
     "dependencyDashboard": true,
     "commitMessageSuffix": "[ci-skip]",
     "platform": "github",
@@ -19,6 +19,17 @@
     "commitBodyTable": true,
     "ignorePaths": ["archive/**"],
     "suppressNotifications": ["prIgnoreNotification"],
+    "regexManagers": [
+      {
+        "fileMatch": [
+          "README.md"
+        ],
+        "matchStrings": [
+          "docker pull (?<registryUrl>.+):(?<currentValue>.+)"
+        ],
+        "datasourceTemplate": "docker"
+      }
+    ],
     "packageRules": [
       {
         "datasources": ["docker"],

@@ -8,7 +8,7 @@
     "timezone": "America/Denver",
     "repositories": ["defenseunicorns/packages"],
     "rebaseStalePrs": true,
-    "schedule": ["before 4pm every weekday"],
+    "schedule": ["after 12pm and before 11am every weekday"],
     "dependencyDashboard": true,
     "commitMessageSuffix": "[ci-skip]",
     "platform": "github",

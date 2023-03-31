@@ -5,10 +5,10 @@
     "extends": [
       "config:base"
     ],
-    "timezone": "America/New_York",
+    "timezone": "America/Denver",
     "repositories": ["defenseunicorns/packages"],
     "rebaseStalePrs": true,
-    "schedule": ["after 12pm and before 11am every weekday"],
+    "schedule": ["before 3pm every weekday"],
     "dependencyDashboard": true,
     "commitMessageSuffix": "[ci-skip]",
     "platform": "github",

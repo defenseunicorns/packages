@@ -19,6 +19,17 @@
     "commitBodyTable": true,
     "ignorePaths": ["archive/**"],
     "suppressNotifications": ["prIgnoreNotification"],
+    "regexManagers": [
+          {
+            "fileMatch": [
+              "^README\\.md$"
+            ],
+            "matchStrings": [
+              "| \\[(?<depName>.*)\\].* | \\[.*\\].* | (?<registryUrl>.+):(?<currentValue>.+)"
+            ],
+            "datasourceTemplate": "docker"
+          }
+        ],
     "packageRules": [
       {
         "datasources": ["docker"],

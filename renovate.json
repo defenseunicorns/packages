@@ -25,7 +25,7 @@
               "^README\\.md$"
             ],
             "matchStrings": [
-              "\\| \\[(?<depName>.*)\\].* \\| \\[.*\\].* \\| (?<registryUrl>.+):(?<currentValue>.+) \\|"
+              "\\| \\[(?<depName>.*)\\].* \\| \\[.*\\].* \\| (?<registryUrl>.+\\/defenseunicorns\\/?).*:(?<currentValue>.+) \\|"
             ],
             "datasourceTemplate": "docker"
           }

@@ -34,7 +34,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@defense-unicorns/unicorn-ui": "^0.0.40",
+		"@defense-unicorns/unicorn-ui": "^0.0.44",
 		"@octokit/rest": "^19.0.7",
 		"material-symbols": "^0.5.3",
 		"normalize.css": "^8.0.1"

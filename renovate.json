@@ -12,8 +12,8 @@
     "dependencyDashboard": true,
     "commitMessageSuffix": "[ci-skip]",
     "platform": "github",
-    "onboarding": false,
-    "requireConfig": "ignored",
+    "onboarding": true,
+    "requireConfig": false,
     "dependencyDashboardTitle": "Renovate Dashboard 🤖",
     "rebaseWhen": "conflicted",
     "commitBodyTable": true,
@@ -22,7 +22,7 @@
     "regexManagers": [
       {
         "fileMatch": [
-          "README.md"
+          "^README\\.md$"
         ],
         "matchStrings": [
           "docker pull (?<registryUrl>.+):(?<currentValue>.+)"
@@ -36,7 +36,7 @@
         "commitMessageTopic": "OCI image {{depName}}",
         "commitMessageExtra": "to {{#if isSingleVersion}}v{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}",
         "enabled": true,
-        "separateMinorPatch": false
+        "separateMinorPatch": true
       }
     ]
   }

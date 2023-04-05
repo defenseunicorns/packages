@@ -5,6 +5,7 @@
     "extends": [
       "config:base"
     ],
+    "groupName": "all",
     "timezone": "America/Denver",
     "repositories": ["defenseunicorns/packages"],
     "rebaseStalePrs": true,
@@ -17,7 +18,7 @@
     "dependencyDashboardTitle": "Renovate Dashboard 🤖",
     "rebaseWhen": "conflicted",
     "commitBodyTable": true,
-    "ignorePaths": ["archive/**"],
+    "ignorePaths": ["package-ui/**"],
     "suppressNotifications": ["prIgnoreNotification"],
     "regexManagers": [
           {

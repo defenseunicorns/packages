@@ -18,7 +18,7 @@
     "dependencyDashboardTitle": "Renovate Dashboard 🤖",
     "rebaseWhen": "conflicted",
     "commitBodyTable": true,
-    "ignorePaths": ["package-ui/**"],
+    "ignorePaths": ["package-ui/**", ".github/**"],
     "suppressNotifications": ["prIgnoreNotification"],
     "regexManagers": [
           {

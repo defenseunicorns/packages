@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/defenseunicorns/zarf/main/zarf.schema.json
+kind: ZarfPackageConfig
+metadata:
+  name: keycloak
+  description: "Keycloak Deployment"
+  version: "4.5.4-bb.3"
+  architecture: amd64  
+
+
+variables:
+  - name: INGRESS_GATEWAY
+    default: passthrough
+  - name: MONITORING_ENABLED
+    default: "true"
+  - name: ISTIO_ENABLED
+    default: "true"
+  - name: REPLICAS
+    default: "2"
+  - name: POSTGRES_USERNAME
+  - name: POSTGRES_PASSWORD
+  - name: POSTGRES_HOST
+  - name: POSTGRES_PORT
+    default: "5432"
+  - name: POSTGRES_DATABASE
+    default: keycloak
+
+components: 
+  - name: aws
+    required: false
+    group: database
+    # needs to set following variables
+    # POSTGRES_USERNAME
+    # POSTGRES_PASSWORD
+    # POSTGRES_HOST
+  - name: in-cluster
+    required: false
+    group: database
+    default: true
+    # needs to set following variables
+    # POSTGRES_USERNAME
+    # POSTGRES_PASSWORD
+    # POSTGRES_HOST
+  - name: values
+    required: true
+    import:
+      path: ../import
+    files:
+      - source: scripts/cat_keycloak_cert.sh
+        target: cat_keycloak_cert.sh
+        executable: true
+      - source: scripts/cat_keycloak_key.sh
+        target: cat_keycloak_key.sh
+        executable: true
+    actions:
+      onDeploy:
+        after:
+        - cmd: ./cat_keycloak_cert.sh
+          description: read the cert
+          setVariable: KEYCLOAK_CERT   
+        - cmd: ./cat_keycloak_key.sh
+          description: read the cert
+          setVariable: KEYCLOAK_KEY
+  - name: keycloak
+    required: true  
+    description: "Deploy Keycloak"
+    import:
+      path: ../import
+      name: app
+    images:
+    - registry1.dso.mil/ironbank/opensource/keycloak/keycloak:21.0.2
+    - registry1.dso.mil/ironbank/opensource/postgres/postgresql12:12.14
+    - registry1.dso.mil/ironbank/big-bang/base:2.0.0

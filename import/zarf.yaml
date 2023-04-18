@@ -17,12 +17,16 @@ constants:
     value: "###ZARF_PKG_VAR_PATH###"
   - name: VALUES_FILE
     value: "###ZARF_PKG_VAR_VALUES_FILE###"
+variables:
+  - name: NAMESPACE
+    default: "###ZARF_PKG_VAR_NAME###"
 
 components:
   - name: values
     files:
       - source: "###ZARF_PKG_VAR_VALUES_FILE###"
         target: values.yaml
+  # add awk object
   - name: app
     required: true
     actions:

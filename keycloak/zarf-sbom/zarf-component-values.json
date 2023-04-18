@@ -1,0 +1,18 @@
+{
+ "artifacts": [],
+ "artifactRelationships": [],
+ "source": {
+  "id": "f4ceacc4f00782fad348b2cbd7b44dc6d3a3fcd03a400e6b69fc80b74d5812a8",
+  "type": "directory",
+  "target": "/var/folders/7d/2j808fl56k95v_2_n_qwmp9w0000gn/T/zarf-3541701562/components/values"
+ },
+ "distro": {},
+ "descriptor": {
+  "name": "zarf",
+  "version": ""
+ },
+ "schema": {
+  "version": "7.1.1",
+  "url": "https://raw.githubusercontent.com/anchore/syft/main/schema/json/schema-7.1.1.json"
+ }
+}

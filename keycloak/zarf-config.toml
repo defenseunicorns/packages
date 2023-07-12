@@ -1,0 +1,10 @@
+[package]
+[package.create]
+max_package_size = 1000000000
+
+[package.create.set]
+repo = "https://repo1.dso.mil/big-bang/product/packages/keycloak.git"
+tag = "18.4.0-bb.2"
+name = "keycloak"
+values_file = "../keycloak/values.yaml"
+path = "./chart"

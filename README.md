@@ -1,8 +1,11 @@
+# Defense Unicorns UDS Packages
+
 | Package                                                                                                                      | Repo                                                                                              | OCI Reference                                                                                                                    | Tag            |
 | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| [Big-Bang](https://github.com/orgs/defenseunicorns/packages/container/package/packages%2Fbig-bang-distro%2Fbig-bang)         | [defenseunicorns/zarf-package-big-bang](https://github.com/defenseunicorns/zarf-package-big-bang) | [`ghcr.io/defenseunicorns/packages/big-bang-distro/big-bang`](https://ghcr.io/defenseunicorns/packages/big-bang-distro/big-bang) | `1.57.1-amd64` |
-| [Big-Bang-AWS](https://github.com/orgs/defenseunicorns/packages/container/package/packages%2Fbig-bang-distro%2Fbig-bang-aws) | [defenseunicorns/zarf-package-big-bang](https://github.com/defenseunicorns/zarf-package-big-bang) | [`ghcr.io/defenseunicorns/packages/big-bang-aws`](https://ghcr.io/defenseunicorns/packages/big-bang-aws)                         | `1.56.0-amd64` |
+| [Defense-Unicorns-Big-Bang-Distro](https://github.com/defenseunicorns/uds-package-dubbd/pkgs/container/packages%2Fdubbd)         | [defenseunicorns/uds-package-dubbd](https://github.com/defenseunicorns/uds-package-dubbd) | [`ghcr.io/defenseunicorns/packages/dubbd`](https://ghcr.io/defenseunicorns/packages/dubbd) | `0.4.0-amd64` |
+| [Defense-Unicorns-Big-Bang-Distro-AWS](https://github.com/defenseunicorns/uds-package-dubbd/pkgs/container/packages%2Fdubbd-aws)         | [defenseunicorns/uds-package-dubbd](https://github.com/defenseunicorns/uds-package-dubbd) | [`ghcr.io/defenseunicorns/packages/dubbd-aws`](https://ghcr.io/defenseunicorns/packages/dubbd-aws) | `0.4.0-amd64` |
+| [Defense-Unicorns-Big-Bang-Distro-K3D](https://github.com/defenseunicorns/uds-package-dubbd/pkgs/container/packages%2Fdubbd-k3d)         | [defenseunicorns/uds-package-dubbd](https://github.com/defenseunicorns/uds-package-dubbd) | [`ghcr.io/defenseunicorns/packages/dubbd-k3d`](https://ghcr.io/defenseunicorns/packages/dubbd-k3d) | `0.4.0-amd64` |
 
-### Contributing
+## Contributing
 
 [See CONTRIBUTING.md](./CONTRIBUTING.md)

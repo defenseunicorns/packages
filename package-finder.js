@@ -12,7 +12,7 @@ async function getPackages() {
   return controller.rest.packages.listPackagesForOrganization({
     package_type: 'container',
     org: 'defenseunicorns'
-  }).filter((p) => {p.html_url.test('uds-package')});
+  });
 }
 
 async function getPkgVersions(pkgName) {
@@ -24,7 +24,9 @@ async function getPkgVersions(pkgName) {
 }
 
 async function makeReadme() {
-  const pkgs = await getPackages();
+  let pkgs = await getPackages();
+  
+  pkgs.data.filter((p) => {p.html_url.test('uds-package')})
 
   let readme_table = '| Package | Repo | OCI Reference | Tag |\n' +
                      '|---------|------|------|\n';

@@ -28,6 +28,7 @@ jobs:
       with:
         add: pkg-readme.md
         author_name: Github_CI
+        new_branch: generate-readme
         
 
 

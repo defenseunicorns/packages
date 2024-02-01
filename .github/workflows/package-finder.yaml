@@ -8,7 +8,7 @@ on:
   #   - cron: '0 0 * * *' # Runs every night at midnight UTC
 
 jobs:
-  echo-input:
+  generate-readme:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo

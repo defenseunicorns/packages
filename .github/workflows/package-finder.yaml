@@ -1,29 +1,29 @@
 name: Package Finder
-on: push
+on: pull_request
 
 jobs:
   echo-input:
     runs-on: ubuntu-latest
-    # steps:
-    # - name: Checkout Repo
-    #   uses: actions/checkout@v3
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
 
-    # - name: Find Packages and Update README.MD
-    #   uses: actions/github-script@v6
-    #   with:
-    #     github-token: ${{ secrets.PACKAGES_SECRET }}
-    #     script: |
-    #         const script = require('./package-finder.js')
-    #         await script({github})
+    - name: Find Packages and Update README.MD
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+            const script = require('./package-finder.js')
+            await script({github})
                
-    #   # Commit changes with default GITHUB_TOKEN to not trigger another actions run 
-    # - name: Commit README.MD
-    #   run: |-
-    #     git config --global user.email "<>"
-    #     git config --global user.name "Github Actions Bot"
-    #     git add -A
-    #     git commit -m "Updated README.md packages table" || exit 0
-    #     git push
+      # Commit changes with default GITHUB_TOKEN to not trigger another actions run 
+    - name: Commit README.MD
+      run: |-
+        git config --global user.email "<>"
+        git config --global user.name "Github Actions Bot"
+        git add -A
+        git commit -m "Updated README.md packages table" || exit 0
+        git push
 
 
 

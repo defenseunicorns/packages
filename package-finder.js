@@ -24,9 +24,13 @@ async function getPkgVersions(pkgName) {
 }
 
 async function makeReadme() {
-  const pkgs = await getPackages();
+  let pkgs = await getPackages();
 
-  let readme_table = '| Package | Repo | Tags |\n' +
+  const regex = new RegExp('uds-package')
+
+  pkgs.data.filter((p) => {regex.test(p.html_url)})
+
+  let readme_table = '| Package | Repo | Tag |\n' +
                      '|---------|------|------|\n';
 
   for(const pkg of pkgs.data) {

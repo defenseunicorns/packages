@@ -1,4 +1,4 @@
-| Package | Repo | OCI Reference | Tag |
+| Package | Repo | Tag |
 |---------|------|------|
 [asdf-docker](https://github.com/orgs/defenseunicorns/packages/container/package/asdf-docker) | [asdf-docker](https://github.com/defenseunicorns/asdf-docker) |  |
 [zarf-package-software-factory/build-harness](https://github.com/orgs/defenseunicorns/packages/container/package/zarf-package-software-factory%2Fbuild-harness) | [zarf-package-software-factory](https://github.com/defenseunicorns/zarf-package-software-factory) |  |

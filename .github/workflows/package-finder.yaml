@@ -1,10 +1,11 @@
 name: Package Finder
-on: 
+on:
   pull_request:
-    paths:
-      - '*'
-  schedule:
-    - cron: '0 0 * * *' # Runs every night at midnight UTC
+    types: [opened, synchronize, reopened]
+    # paths:
+    #   - '*'
+  # schedule:
+  #   - cron: '0 0 * * *' # Runs every night at midnight UTC
 
 jobs:
   echo-input:

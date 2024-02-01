@@ -30,7 +30,7 @@ async function makeReadme() {
 
   pkgs.data.filter((p) => {regex.test(p.html_url)})
 
-  let readme_table = '| Package | Repo | OCI Reference | Tag |\n' +
+  let readme_table = '| Package | Repo | Tag |\n' +
                      '|---------|------|------|\n';
 
   for(const pkg of pkgs.data) {

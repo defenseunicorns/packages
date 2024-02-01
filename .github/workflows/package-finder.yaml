@@ -21,91 +21,77 @@ jobs:
         script: |
             const script = require('./package-finder.js')
             await script({github})
-               
-      # Commit changes with default GITHUB_TOKEN to not trigger another actions run 
-    # - name: Commit README.MD
-    #   uses: EndBug/add-and-commit@v9
-    #   with:
-    #     add: pkg-readme.md
-    #     author_name: Github_CI
-    #     new_branch: generate-readme
-        
-    - name: Commit
-      uses: https://github.com/defenseunicorns/delivery-github-actions-workflows/blob/main/
-      id: Commit-updated-files
-      with:
-        path: .github/actions/autoformat/action.yml
 
-    # - name: Commit updated files
-    #   shell: bash -e -o pipefail {0}
-    #   env:
-    #     GITHUB_TOKEN: ${{ github.token }}
-    #   run: |
-    #     # Initialize empty arrays for storing filenames that are added or removed
-    #     additions=()
-    #     removed=()
+    - name: Commit updated files
+      shell: bash -e -o pipefail {0}
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: |
+        # Initialize empty arrays for storing filenames that are added or removed
+        additions=()
+        removed=()
 
-    #     # Read the git status output and categorize files as added or removed
-    #     while IFS= read -r -d $'\0' status_line; do
-    #         filename="${status_line:3}"
-    #         git_status="${status_line:0:2}"
+        # Read the git status output and categorize files as added or removed
+        while IFS= read -r -d $'\0' status_line; do
+            filename="${status_line:3}"
+            git_status="${status_line:0:2}"
 
-    #         if [ "$git_status" = "D " ]; then
-    #             removed+=("$filename")
-    #         else
-    #             file_contents=$(base64 -w 0 < "$filename")
-    #             additions+=("$file_contents,$filename")
-    #         fi
-    #     done < <(git status --porcelain=v1 -z)
+            if [ "$git_status" = "D " ]; then
+                removed+=("$filename")
+            else
+                file_contents=$(base64 -w 0 < "$filename")
+                additions+=("$file_contents,$filename")
+            fi
+        done < <(git status --porcelain=v1 -z)
 
-    #     # If there are no additions, exit the script
-    #     if [ "${#additions[@]}" -eq 0 ]; then
-    #       echo "No files updated, skipping commit"
-    #       exit 0
-    #     fi
+        # If there are no additions, exit the script
+        if [ "${#additions[@]}" -eq 0 ]; then
+          echo "No files updated, skipping commit"
+          exit 0
+        fi
 
-    #     # for now, we ignore $removed files, but they could be handled similarly (it's just harder to send two lists of positional input files into jq)
-    #     # jq's iteration over inputs will skip over files with 0 lines (empty files)
+        # for now, we ignore $removed files, but they could be handled similarly (it's just harder to send two lists of positional input files into jq)
+        # jq's iteration over inputs will skip over files with 0 lines (empty files)
 
-    #     commitMessage="chore: automated formatting of files"
+        commitMessage="chore: automated formatting of files"
 
-    #     echo "-------------------------"
-    #     echo
-    #     echo "GraphQL fileContents and names: $(echo "${additions[@]}" | jq -R -c 'split(" ") | map(split(",") | {contents: .[0], path: .[1]})')"
-    #     echo
-    #     echo "-------------------------"
+        echo "-------------------------"
+        echo
+        echo "GraphQL fileContents and names: $(echo "${additions[@]}" | jq -R -c 'split(" ") | map(split(",") | {contents: .[0], path: .[1]})')"
+        echo
+        echo "-------------------------"
 
-    #     jq \
-    #       --raw-input \
-    #       --null-input \
-    #       --arg repositoryNameWithOwner "${{ github.event.client_payload.github.payload.repository.full_name || github.event.repository.full_name }}" \
-    #       --arg branchName "${{ github.event.client_payload.pull_request.head.ref || github.event.pull_request.head.ref || github.ref_name }}" \
-    #       --arg expectedHeadOid "${{ github.event.client_payload.pull_request.head.sha || github.event.pull_request.head.sha || github.sha }}" \
-    #       --arg commitMessage "$commitMessage" \
-    #       --argjson fileContentsAndNames "$(echo "${additions[@]}" | jq -R -c 'split(" ") | map(split(",") | {contents: .[0], path: .[1]})')" \
-    #       '{
-    #       "query": "mutation ($input: CreateCommitOnBranchInput!) { createCommitOnBranch(input: $input) { commit { url } } }",
-    #       "variables": {
-    #         "input": {
-    #           "branch": {
-    #             "repositoryNameWithOwner": $repositoryNameWithOwner,
-    #             "branchName": $branchName
-    #           },
-    #           "message": {
-    #             "headline": $commitMessage
-    #           },
-    #           "fileChanges": {
-    #             "additions": $fileContentsAndNames
-    #           },
-    #           "expectedHeadOid": $expectedHeadOid
-    #         }
-    #       }
-    #     }' | \
-    #     curl https://api.github.com/graphql \
-    #       --silent \
-    #       --fail-with-body \
-    #       --oauth2-bearer "$(gh auth token)" \
-    #       --data @-
+        jq \
+          --raw-input \
+          --null-input \
+          --arg repositoryNameWithOwner "${{ github.event.client_payload.github.payload.repository.full_name || github.event.repository.full_name }}" \
+          --arg branchName "${{ github.event.client_payload.pull_request.head.ref || github.event.pull_request.head.ref || github.ref_name }}" \
+          --arg expectedHeadOid "${{ github.event.client_payload.pull_request.head.sha || github.event.pull_request.head.sha || github.sha }}" \
+          --arg commitMessage "$commitMessage" \
+          --argjson fileContentsAndNames "$(echo "${additions[@]}" | jq -R -c 'split(" ") | map(split(",") | {contents: .[0], path: .[1]})')" \
+          '{
+          "query": "mutation ($input: CreateCommitOnBranchInput!) { createCommitOnBranch(input: $input) { commit { url } } }",
+          "variables": {
+            "input": {
+              "branch": {
+                "repositoryNameWithOwner": $repositoryNameWithOwner,
+                "branchName": $branchName
+              },
+              "message": {
+                "headline": $commitMessage
+              },
+              "fileChanges": {
+                "additions": $fileContentsAndNames
+              },
+              "expectedHeadOid": $expectedHeadOid
+            }
+          }
+        }' | \
+        curl https://api.github.com/graphql \
+          --silent \
+          --fail-with-body \
+          --oauth2-bearer "$(gh auth token)" \
+          --data @-
 
 
                   

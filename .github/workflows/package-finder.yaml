@@ -1,8 +1,8 @@
 name: Package Finder
 on: 
-  push:
-    branches: 
-      - main
+  pull_request:
+    paths:
+      - '*'
   schedule:
     - cron: '0 0 * * *' # Runs every night at midnight UTC
 
@@ -23,13 +23,11 @@ jobs:
                
       # Commit changes with default GITHUB_TOKEN to not trigger another actions run 
     - name: Commit README.MD
-      run: |-
-        git config --global user.email "<>"
-        git config --global user.name "Github Actions Bot"
-        git add -A
-        git commit -m "Updated README.md packages table" || exit 0
-        git push
-
+      uses: EndBug/add-and-commit@v9
+      with:
+        add: pkg-readme.md
+        author_name: Github_CI
+        
 
 
                   

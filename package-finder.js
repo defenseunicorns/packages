@@ -38,5 +38,5 @@ async function makeReadme() {
     readme_table += `[${pkg.name}](${pkg.html_url}) | [${repo_name}](${repo_url}) | ${latest_version_tags} |\n`
   }
 
-  fs.writeFileSync('README.md', readme_table, 'utf-8');
+  fs.writeFileSync('pkg-readme.md', readme_table, 'utf-8');
 }

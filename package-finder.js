@@ -25,8 +25,10 @@ async function getPkgVersions(pkgName) {
 
 async function makeReadme() {
   let pkgs = await getPackages();
-  
-  pkgs.data.filter((p) => {p.html_url.test('uds-package')})
+
+  const regex = new RegExp('uds-package')
+
+  pkgs.data.filter((p) => {regex.test(p.html_url)})
 
   let readme_table = '| Package | Repo | OCI Reference | Tag |\n' +
                      '|---------|------|------|\n';

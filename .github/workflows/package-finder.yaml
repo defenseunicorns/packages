@@ -1,9 +1,10 @@
 name: Package Finder
-on: pull_request
-
-permissions:
-  contents: read
-  packages: read
+on: 
+  push:
+    branches: 
+      - main
+  schedule:
+    - cron: '0 0 * * *' # Runs every night at midnight UTC
 
 jobs:
   echo-input:

@@ -30,13 +30,13 @@
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.3",
 		"vite": "^4.2.0",
-		"vitest": "^0.29.0"
+		"vitest": "^0.34.0"
 	},
 	"type": "module",
 	"dependencies": {
-		"@defense-unicorns/unicorn-ui": "^0.0.44",
+		"@defense-unicorns/unicorn-ui": "^0.0.49",
 		"@octokit/rest": "^19.0.7",
-		"material-symbols": "^0.5.3",
+		"material-symbols": "^0.23.0",
 		"normalize.css": "^8.0.1"
 	}
 }
